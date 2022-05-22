@@ -29,11 +29,11 @@ const GameOver = (props) => {
           }}
         >
           {checkIfHit != null
-            ? checkIfHit == 1
+            ? checkIfHit === 1
               ? "Second Snake Wins!"
               : "First Snake Wins!"
-            : lengthFirst != lengthSecond
-            ? lengthSecond > lengthSecond
+            : lengthFirst !== lengthSecond
+            ? lengthFirst > lengthSecond
               ? "First Snake Wins!"
               : "Second Snake Wins!"
             : "It's a Draw!"}

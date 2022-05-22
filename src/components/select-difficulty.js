@@ -38,6 +38,8 @@ const SelectDifficulty = (props) => {
           case "hard":
             props.setSpeed(50);
             break;
+          default:
+            break;
         }
         props.setOpenModal(false);
       })

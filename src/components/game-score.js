@@ -2,8 +2,6 @@ import { Typography } from "@mui/material";
 import React from "react";
 
 const GameScore = (props) => {
-  const speed = props.speed;
-
   return (
     <div className="game-score-container" style={{ width: props.dim }}>
       <div className="game-score">

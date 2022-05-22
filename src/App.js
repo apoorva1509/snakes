@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Dialog, DialogTitle, DialogContent, Slide } from "@mui/material";
+import { Dialog, DialogContent, Slide } from "@mui/material";
 import Snake from "./components/snake";
 import Food from "./components/food";
 import SelectDifficulty from "./components/select-difficulty";
@@ -52,10 +52,12 @@ const App = () => {
       const id = setInterval(changeTime, speed);
       return () => clearInterval(id);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [time, speed]);
 
   useEffect(() => {
     onEatingFood();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [time]);
 
   useEffect(() => {
@@ -89,6 +91,8 @@ const App = () => {
         break;
       case 83:
         setDirection("DOWN");
+        break;
+      default:
         break;
     }
   };
@@ -158,15 +162,15 @@ const App = () => {
     var firstSnakeHead = [...firstSnakeState[firstSnakeState.length - 1]];
     var secondSnakeHead = [...secondSnakeState[secondSnakeState.length - 1]];
     var food = [...foodState];
-    var first = firstSnakeHead[0] == food[0] && firstSnakeHead[1] == food[1];
-    var second = secondSnakeHead[0] == food[0] && secondSnakeHead[1] == food[1];
+    var first = firstSnakeHead[0] === food[0] && firstSnakeHead[1] === food[1];
+    var second = secondSnakeHead[0] === food[0] && secondSnakeHead[1] === food[1];
 
     if (first || second) {
       setFoodState(getRandomCoordinates());
       randomCountFood--;
       if (randomCountFood > 0) {
         enlargeSnake(first ? "first" : "second");
-      } else if (randomCountFood == 0) {
+      } else if (randomCountFood === 0) {
         gameOver();
       }
     } else {
@@ -179,7 +183,7 @@ const App = () => {
     var enlargedSnake;
     var snakeDirection;
 
-    if (snakeNumber == "first") {
+    if (snakeNumber === "first") {
       enlargedSnake = [...firstSnakeState];
       snakeDirection = direction;
     } else {
@@ -203,9 +207,11 @@ const App = () => {
       case "DOWN":
         newDot = [tail[0], tail[1] - 2];
         break;
+      default:
+        break;
     }
 
-    if (snakeNumber == "first") {
+    if (snakeNumber === "first") {
       console.log(snakeNumber);
       setSnakeState([[...newDot], ...firstSnakeState]);
     } else {
@@ -231,6 +237,8 @@ const App = () => {
       case "DOWN":
         head = [head[0], head[1] + 2];
         break;
+      default:
+        break;
     }
     snake.push(head);
     snake.shift();
@@ -254,6 +262,8 @@ const App = () => {
       case "DOWN":
         head = [head[0], head[1] + 2];
         break;
+      default:
+        break;
     }
     snake.push(head);
     snake.shift();
@@ -276,6 +286,7 @@ const App = () => {
           <img
             className="snake-image"
             src={process.env.PUBLIC_URL + "images/start-game.jpg"}
+            alt="start-img"
           />{" "}
           <div>
             <h1 className="start-text"> Lets play Snakes! </h1>
@@ -317,12 +328,14 @@ const App = () => {
           <img
             className="snake-image1"
             src={process.env.PUBLIC_URL + "images/green-background.png"}
+            alt="green-bg"
           />{" "}
           <div style={{ marginBottom: "-50px", padding: "0px" }}>
             <h1 className="start-text">GAME OVER!</h1>
             <img
               className="snake-image2"
               src={process.env.PUBLIC_URL + "images/game-over.jpeg"}
+              alt="game-over-img"
             />
             <GameOver
               whichSnakeHits={whichSnakeHits}

@@ -6,7 +6,7 @@ const Food = (props) => {
     top: `${props.foodState[1]}%`,
   };
 
-  return <img src={process.env.PUBLIC_URL + "images/food.png"} className="food" style={coordinates}></img>;
+  return <img src={process.env.PUBLIC_URL + "images/food.png"} alt="apple" className="food" style={coordinates}></img>;
 };
 
 export default Food;
