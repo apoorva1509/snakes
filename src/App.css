@@ -1,38 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Joti+One');
+
 .App {
-  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background: url("../public/images/game-background.webp");
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.Start-background {
+  position: relative;
+  color: white;
   }
+
+.board {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1.5rem solid #538633;
+  background: url("../public/images/snake-background.jpg");
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 120%;
+  background-repeat: no-repeat;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.snake {
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  border: 1px solid #a4d348;
+  z-index: 2;
+}
+
+.food {
+  position: absolute;
+  width: 3%;
+  height: 3%;
+  border-radius: 7px;
+  margin: 1px;
+  z-index: 1;
+}
+
+.select-difficulty-form {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+.game-score-container {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #4a752c;
+  border-left: 1.5rem solid #4a752c;
+  border-right: 1.5rem solid #4a752c;
 }
 
-.App-link {
-  color: #61dafb;
+.game-score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  margin-top: 3rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.snake-image {
+  max-width: 100%;
+  position: relative;
+  max-height: fit-content
+}
+
+.snake-image1 {
+  max-width: 100%;
+  position: relative;
+  height: 440px;
+}
+
+.snake-image2 {
+  position: absolute;
+  top: 110px;
+  left: 200px;
+  width: 170px;
+}
+
+.second-snake {
+  background-color: #bb1068 !important;
+}
+
+.start-text {
+position: absolute;
+  top: 8px;
+  left: 130px;
+  font-family: "Joti One";
+  background: -webkit-linear-gradient(315deg, #f5d020 0%, #f53803 74%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 50px;
+}
+
+.start-button {
+background-color: #f5d020;
+background-image: linear-gradient(315deg, #f5d020 0%, #f53803 74%);
+font-weight: bold;
 }
